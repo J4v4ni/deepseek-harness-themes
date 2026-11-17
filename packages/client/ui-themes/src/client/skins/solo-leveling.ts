@@ -4,6 +4,28 @@ import { ORBITRON_TTF } from './font-data.ts'
 export const SOLO_LEVELING_EXTRAS = String.raw`@font-face { font-family: 'DSH Arcane'; src: url(data:font/ttf;base64,${ORBITRON_TTF}) format('truetype'); font-style: normal; font-weight: 100 900; font-display: swap; }
 
 /* Shadow monarch: violet glow, double borders, crystal highlights. */
+@keyframes dsh-shadow-spark {
+  0%, 100% { opacity: .18; transform: translateY(0) scale(.85); }
+  50% { opacity: .75; transform: translateY(-5px) scale(1); }
+}
+body[data-ds-theme-pack="solo-leveling"] [data-slot="conversation.composer"] {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(124, 92, 255, .2), transparent 60%),
+    linear-gradient(180deg, rgba(13, 18, 40, .96), rgba(6, 9, 22, .98)) !important;
+}
+body[data-ds-theme-pack="solo-leveling"] [data-slot="conversation.composer"] [aria-label*="Send"] {
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(56, 214, 255, .55), 0 0 30px rgba(124, 92, 255, .55);
+}
+body[data-ds-theme-pack="solo-leveling"] [data-slot="conversation.chat.node"] {
+  background-image: radial-gradient(2px 2px at 20% 30%, rgba(220, 230, 255, .65), transparent 100%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  body[data-ds-theme-pack="solo-leveling"] [data-chat-user-row]::before {
+    animation: dsh-shadow-spark 4.5s ease-in-out infinite;
+  }
+}
+
 body[data-ds-theme-pack="solo-leveling"] [data-chat-user-row] {
   position: relative;
   isolation: isolate;

@@ -4,6 +4,34 @@ import { GRENZE_GOTISCH_TTF } from './font-data.ts'
 export const AOT_SCOUT_EXTRAS = String.raw`@font-face { font-family: 'DSH Gothic'; src: url(data:font/ttf;base64,${GRENZE_GOTISCH_TTF}) format('truetype'); font-style: normal; font-weight: 100 900; font-display: swap; }
 
 /* Scout regiment: parchment, leather frame, wax seals, brass rivets. */
+body[data-ds-theme-pack="aot-scout"] [data-slot="sidebar"] nav button {
+  text-transform: none;
+  letter-spacing: .025em;
+  font-family: 'DSH Gothic', Georgia, serif;
+  font-size: 14px;
+  border: 0;
+  border-left: 4px solid rgba(122, 92, 48, .62);
+  border-bottom: 1px dashed rgba(122, 92, 48, .48);
+  border-radius: 0;
+  transform: skewX(-1deg);
+  background: linear-gradient(90deg, rgba(255, 250, 235, .82), rgba(206, 190, 160, .36));
+  box-shadow: inset 0 -1px rgba(255, 255, 255, .35);
+}
+body[data-ds-theme-pack="aot-scout"] [data-slot="conversation.header"] [role="tab"] {
+  text-transform: none;
+  letter-spacing: .035em;
+  font-family: 'DSH Gothic', Georgia, serif;
+  font-size: 14px;
+}
+body[data-ds-theme-pack="aot-scout"] [data-chat-user-row] {
+  clip-path: polygon(0 2%, 2% 0, 98% 0, 100% 3%, 99.5% 96%, 97% 100%, 3% 99%, 0 96%);
+}
+body[data-ds-theme-pack="aot-scout"] [data-slot="conversation.composer"] {
+  background:
+    repeating-linear-gradient(2deg, rgba(105, 78, 42, .045) 0 1px, transparent 1px 5px),
+    linear-gradient(180deg, rgba(242, 231, 207, .98), rgba(215, 198, 164, .98)) !important;
+}
+
 body[data-ds-theme-pack="aot-scout"] [data-chat-user-row] {
   position: relative;
   isolation: isolate;

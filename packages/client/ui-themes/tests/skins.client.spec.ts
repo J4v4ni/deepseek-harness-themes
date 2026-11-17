@@ -22,7 +22,7 @@ describe('pack skins', () => {
       .split('}')
       .map(block => block.split('{')[0] ?? '')
       .map(block => block.replace(/\/\*[\s\S]*?\*\//gu, '').trim())
-      .filter(selector => selector !== '')
+      .filter(selector => selector !== '' && !selector.startsWith('@font-face'))
       .flatMap(selector => selector.split(',').map(part => part.trim()).filter(Boolean))
     expect(selectors.length).toBeGreaterThan(20)
     expect(selectors.filter(selector => !selector.startsWith(scope))).toEqual([])
@@ -37,6 +37,8 @@ describe('pack skins', () => {
     expect(css).toContain('[data-chat-user-row]')
     expect(css).toContain('[data-turn-error]')
     expect(css).toContain('[data-retry-row]')
+    expect(css).toContain('[data-turn-max-tokens]')
+    expect(css).toContain('@font-face')
     expect(css).toContain('prefers-reduced-motion: reduce')
   })
 

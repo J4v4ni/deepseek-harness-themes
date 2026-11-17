@@ -4,6 +4,34 @@ import { ORBITRON_TTF } from './font-data.ts'
 export const COD_TACTICAL_EXTRAS = String.raw`@font-face { font-family: 'DSH HUD'; src: url(data:font/ttf;base64,${ORBITRON_TTF}) format('truetype'); font-style: normal; font-weight: 100 900; font-display: swap; }
 
 /* Tactical: chamfered plates, hazard stripes, HUD labels. */
+body[data-ds-theme-pack="cod-tactical"] [data-slot="main.conversation"] {
+  background-image:
+    repeating-linear-gradient(0deg, rgba(170, 210, 160, .045) 0 1px, transparent 1px 4px),
+    linear-gradient(180deg, rgba(8, 12, 10, .42), rgba(8, 12, 10, .12)) !important;
+}
+body[data-ds-theme-pack="cod-tactical"] [data-slot="conversation.header"] {
+  position: relative;
+}
+body[data-ds-theme-pack="cod-tactical"] [data-slot="conversation.header"]::after {
+  content: 'SECURE CHANNEL // LIVE';
+  position: absolute;
+  top: 7px;
+  right: 48px;
+  color: rgba(143, 227, 111, .58);
+  font: 700 9px 'DSH HUD', monospace;
+  letter-spacing: .12em;
+  pointer-events: none;
+}
+body[data-ds-theme-pack="cod-tactical"] [data-slot="sidebar"] nav button::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin-left: auto;
+  border-radius: 50%;
+  background: #8fe36f;
+  box-shadow: 0 0 8px rgba(143, 227, 111, .75);
+}
+
 body[data-ds-theme-pack="cod-tactical"] [data-chat-user-row] {
   position: relative;
   isolation: isolate;

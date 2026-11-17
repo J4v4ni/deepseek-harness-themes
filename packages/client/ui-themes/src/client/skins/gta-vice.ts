@@ -4,6 +4,20 @@ import { BUNGEE_TTF } from './font-data.ts'
 export const GTA_VICE_EXTRAS = String.raw`@font-face { font-family: 'DSH Vice'; src: url(data:font/ttf;base64,${BUNGEE_TTF}) format('truetype'); font-style: normal; font-weight: 400; font-display: swap; }
 
 /* Vice sunset: chrome display type, neon outlines, sun-drenched halo. */
+body[data-ds-theme-pack="gta-vice"] [data-slot="main.conversation"] {
+  background-image:
+    linear-gradient(rgba(34, 211, 238, .10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, .10) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(13, 7, 28, .1), rgba(13, 7, 28, .42)) !important;
+  background-size: 34px 34px, 34px 34px, auto;
+  background-position: center bottom;
+}
+body[data-ds-theme-pack="gta-vice"] [data-slot="conversation.header"] [role="tab"] {
+  text-transform: none;
+  letter-spacing: .025em;
+  font-family: 'DSH Vice', Impact, sans-serif;
+}
+
 body[data-ds-theme-pack="gta-vice"] [data-chat-user-row] {
   position: relative;
   isolation: isolate;
