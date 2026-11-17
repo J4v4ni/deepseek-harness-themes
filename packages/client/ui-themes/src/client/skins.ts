@@ -118,7 +118,7 @@ const SPEC = {
   },
   'aot-scout': {
     fontUi: "'Georgia', 'Palatino Linotype', 'Book Antiqua', serif",
-    fontDisplay: "'Palatino Linotype', 'Book Antiqua', Georgia, serif",
+    fontDisplay: "'DSH Gothic', 'Palatino Linotype', Georgia, serif",
     fontMono: "'Consolas', 'SF Mono', monospace",
     accent: '#8c2f2a',
     accent2: '#5a6b52',

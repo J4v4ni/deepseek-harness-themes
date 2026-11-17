@@ -106,7 +106,7 @@ function ModelRetryItem({ node, active, t }: {
   const seconds = active ? remainingSeconds : scheduledSeconds
 
   return (
-    <details className={css.retryRow} data-retry-row data-active={active || undefined}>
+    <details className={css.retryRow} data-retry-row="true" data-active={active || undefined}>
       <summary className={css.retrySummary}>
         <span className={css.retryText} role="status">
           <TextShimmer active={active}>
@@ -134,7 +134,7 @@ function TurnErrorItem({ node, t }: {
   t: ChatViewSlotProps['t']
 }) {
   return (
-    <div className={css.turnErrorRow} data-turn-error role="status">
+    <div className={css.turnErrorRow} data-turn-error="true" role="status">
       <StateDot state="error" className={css.turnErrorDot} />
       <div className={css.turnErrorCopy}>
         <span className={css.turnErrorTitle}>{node.code === 'ACCOUNT_SIGNED_OUT' || node.code === 'INTERRUPTED' ? t('message.taskStopped') : t('message.turnError')}</span>
@@ -150,7 +150,7 @@ function TurnMaxTokensItem({ t }: {
   t: ChatViewSlotProps['t']
 }) {
   return (
-    <div className={css.turnErrorRow} data-turn-max-tokens role="status">
+    <div className={css.turnErrorRow} data-turn-max-tokens="true" role="status">
       <StateDot state="warning" className={css.turnErrorDot} />
       <div className={css.turnErrorCopy}>
         <span className={css.maxTokensTitle}>{t('message.maxTokens')}</span>
