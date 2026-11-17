@@ -7,15 +7,16 @@ import { AOT_SCOUT_EXTRAS } from './skins/aot-scout.ts'
  * Per-pack visual skins: the part of a theme that colour tokens cannot express.
  *
  * A skin is one scoped stylesheet injected while its pack is applied and
- * removed with it. Every rule hangs off `body[data-ds-theme-pack="<id>"]`, the
+ * removed with it. Component selectors hang off `body[data-ds-theme-pack="<id>"]`, the
  * attribute the plugin sets beside the tokens, so two packs never fight and the
  * Default tile restores the untouched shell.
  *
  * Rules address stable structure rather than hashed class names: the `data-slot`
  * seats the shell declares (`sidebar`, `conversation.header`,
  * `conversation.composer`, `conversation.chat.node`, `shell.bottom`, …), ARIA
- * roles, and element kinds inside them. That keeps a skin working across
- * rebuilds, where CSS Module hashes change.
+ * roles, and element kinds inside them. Each pack's uniquely named `@font-face`
+ * is global CSS for its embedded display font. Stable selectors keep skins
+ * working across rebuilds, where CSS Module hashes change.
  */
 
 /** One skin's parameter set: what the shared chrome rules are painted with. */

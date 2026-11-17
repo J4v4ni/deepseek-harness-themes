@@ -12,6 +12,7 @@ describe('pack skins', () => {
       const css = skinCss(pack.id)
       expect(css, pack.id).toBeDefined()
       expect(css).toContain(`body[${PACK_ATTRIBUTE}="${pack.id}"]`)
+      expect(css).toContain('@font-face')
     }
   })
 
@@ -40,6 +41,13 @@ describe('pack skins', () => {
     expect(css).toContain('[data-turn-max-tokens]')
     expect(css).toContain('@font-face')
     expect(css).toContain('prefers-reduced-motion: reduce')
+  })
+
+  it('uses a distinct display family for each built-in skin', () => {
+    expect(skinCss('cod-tactical')).toContain('DSH HUD')
+    expect(skinCss('solo-leveling')).toContain('DSH Arcane')
+    expect(skinCss('gta-vice')).toContain('DSH Vice')
+    expect(skinCss('aot-scout')).toContain('DSH Gothic')
   })
 
   it('leaves imported packs without a skin', () => {
