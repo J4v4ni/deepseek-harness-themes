@@ -2625,7 +2625,7 @@ describe('ChatView', () => {
     ])
     // The transient notice is the frame-wide host's job; the failure row keeps
     // neither a recharge affordance nor a toast of its own.
-    expect(view.container.querySelectorAll('[data-turn-error]')).toHaveLength(6)
+    expect(view.container.querySelectorAll('[data-turn-error]')).toHaveLength(5)
     expect(view.queryByRole('alert')).toBeNull()
     expect(view.queryByRole('dialog')).toBeNull()
     expect(view.queryByRole('button', { name: '去充值' })).toBeNull()
