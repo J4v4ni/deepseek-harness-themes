@@ -64,7 +64,8 @@ body[data-ds-theme-pack="cod-tactical"] [data-chat-user-row]::after {
   background: repeating-linear-gradient(90deg, #8fe36f 0 3px, transparent 3px 5px);
   opacity: .7;
 }
-body[data-ds-theme-pack="cod-tactical"] [data-turn-error] {
+body[data-ds-theme-pack="cod-tactical"] [data-turn-error],
+body[data-ds-theme-pack="cod-tactical"] [data-turn-max-tokens] {
   position: relative;
   border-left: 4px solid #ff633d;
   background: linear-gradient(90deg, rgba(255, 75, 45, .18), transparent 72%);

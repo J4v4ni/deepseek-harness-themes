@@ -48,7 +48,8 @@ body[data-ds-theme-pack="solo-leveling"] [data-chat-user-row]::before {
   filter: blur(10px);
   pointer-events: none;
 }
-body[data-ds-theme-pack="solo-leveling"] [data-turn-error] {
+body[data-ds-theme-pack="solo-leveling"] [data-turn-error],
+body[data-ds-theme-pack="solo-leveling"] [data-turn-max-tokens] {
   position: relative;
   border-left: 3px solid #ff465f;
   color: #ff697a;

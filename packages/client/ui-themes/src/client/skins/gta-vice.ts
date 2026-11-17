@@ -30,7 +30,8 @@ body[data-ds-theme-pack="gta-vice"] [data-chat-user-row] {
   background: linear-gradient(135deg, rgba(54, 18, 64, .92), rgba(20, 8, 34, .94));
   box-shadow: 0 0 0 1px rgba(255, 47, 146, .42), 0 0 24px rgba(255, 47, 146, .24), inset 0 0 24px rgba(34, 211, 238, .08);
 }
-body[data-ds-theme-pack="gta-vice"] [data-turn-error] {
+body[data-ds-theme-pack="gta-vice"] [data-turn-error],
+body[data-ds-theme-pack="gta-vice"] [data-turn-max-tokens] {
   border-left: 4px solid #ff624f;
   color: #ff7469;
   background: linear-gradient(90deg, rgba(255, 58, 85, .2), transparent 76%);

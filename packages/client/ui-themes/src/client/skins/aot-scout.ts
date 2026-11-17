@@ -54,7 +54,8 @@ body[data-ds-theme-pack="aot-scout"] [data-chat-user-row]::before {
   border: 1px dashed rgba(105, 78, 42, .42);
   pointer-events: none;
 }
-body[data-ds-theme-pack="aot-scout"] [data-turn-error] {
+body[data-ds-theme-pack="aot-scout"] [data-turn-error],
+body[data-ds-theme-pack="aot-scout"] [data-turn-max-tokens] {
   border-left: 5px solid #9b302b;
   color: #8c2f2a;
   background: linear-gradient(90deg, rgba(155, 48, 43, .15), transparent 75%);
