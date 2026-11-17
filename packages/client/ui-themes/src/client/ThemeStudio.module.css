@@ -1,0 +1,233 @@
+/* Sidebar-foot paintbrush row (above Settings) and the theme studio dialog.
+   Geometry mirrors the Settings trigger so the two footer rows read as one
+   column; every surface, border, and ink value is a --dsw-* token. */
+
+.row {
+  position: relative;
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin: 4px 0;
+}
+
+.row.railRow {
+  width: 36px;
+  margin: 8px 0 10px;
+}
+
+.trigger {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--dsh-sidebar-label-gap);
+  width: auto;
+  height: 42px;
+  margin: 0;
+  padding: 0 calc(var(--dsh-sidebar-row-padding) - var(--dsh-sidebar-paint-inset));
+  box-sizing: border-box;
+  border: none;
+  border-radius: var(--dsw-radius-md);
+  background: transparent;
+  border-inline: var(--dsh-sidebar-paint-inset) solid transparent;
+  background-clip: padding-box;
+  cursor: pointer;
+  overflow: hidden;
+  color: var(--dsw-alias-label-primary);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+@media (hover: hover) {
+  .trigger:hover {
+    background-color: var(--dsw-alias-interactive-bg-hover);
+  }
+}
+
+/* Rail trigger: the same 36x36 box and rounding as the other rail controls. */
+.trigger.rail {
+  flex: none;
+  justify-content: center;
+  gap: 0;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+  border-inline: 0;
+  background-clip: border-box;
+  border-radius: 50%;
+  corner-shape: round;
+}
+
+.triggerLabel {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.dialog {
+  width: min(560px, calc(100vw - 32px));
+}
+
+/* The pack grid scrolls inside the fixed header and footer; a growing list of
+   imported packs never pushes the import action off the dialog. */
+.scroll {
+  max-height: min(52vh, 460px);
+  overflow-y: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: var(--dsw-radius-lg);
+  background: var(--dsw-alias-bg-layer-1);
+  overflow: hidden;
+}
+
+.cardSelected {
+  border-color: var(--dsw-alias-brand-primary);
+  background: var(--dsw-alias-interactive-bg-hover-accent);
+}
+
+.select {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border: none;
+  background: transparent;
+  color: var(--dsw-alias-label-primary);
+  font-family: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .select:hover {
+    background: var(--dsw-alias-interactive-bg-hover);
+  }
+}
+
+.cardRemovable .select {
+  padding-inline-end: 34px;
+}
+
+.swatches {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  width: 32px;
+  height: 44px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: var(--dsw-radius-sm);
+  overflow: hidden;
+}
+
+.swatch {
+  flex: 1;
+}
+
+.packSwatches .swatch:nth-child(1) {
+  background: var(--theme-swatch-1);
+}
+
+.packSwatches .swatch:nth-child(2) {
+  background: var(--theme-swatch-2);
+}
+
+.packSwatches .swatch:nth-child(3) {
+  background: var(--theme-swatch-3);
+}
+
+/* The default tile previews the live appearance, so it reads the palette
+   tokens the active pack has already painted. */
+.defaultSwatches .swatch:nth-child(1) {
+  background: var(--dsw-alias-bg-base);
+}
+
+.defaultSwatches .swatch:nth-child(2) {
+  background: var(--dsw-alias-brand-primary);
+}
+
+.defaultSwatches .swatch:nth-child(3) {
+  background: var(--dsw-alias-label-primary);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.cardName {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--dsw-alias-label-primary);
+}
+
+.cardDetail {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.remove {
+  position: absolute;
+  top: 4px;
+  inset-inline-end: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  border-radius: var(--dsw-radius-xs);
+  background: transparent;
+  color: var(--dsw-alias-label-tertiary);
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .remove:hover {
+    background: var(--dsw-alias-interactive-bg-hover);
+    color: var(--dsw-alias-label-primary);
+  }
+}
+
+.failure {
+  margin: 10px 0 0;
+  color: var(--dsw-alias-state-error-primary);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.importRow {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 12px;
+}
+
+.fileInput {
+  display: none;
+}

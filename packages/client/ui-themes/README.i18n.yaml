@@ -1,0 +1,49 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/client/ui-themes/README.md
+/:
+  en: 3453e34465463994
+  zh: 17664b782d0deb16
+/deepseek-ai-dsh-client-ui-themes:
+  en: 566a6b22bd1010b7
+  zh: 47cfb4520c784cdc
+/deepseek-ai-dsh-client-ui-themes/summary:
+  en: 6e41dee472e4a97c
+  zh: 2a5a490ab5d4cf2b
+/deepseek-ai-dsh-client-ui-themes/table-of-contents:
+  en: d152484eb41ac6b4
+  zh: 09388d293f9be9cb
+/deepseek-ai-dsh-client-ui-themes/use-this-package:
+  en: bbff250eba0f1b89
+  zh: 0a618f05cc88ee2b
+/deepseek-ai-dsh-client-ui-themes/use-this-package/switching-packs:
+  en: c22fa4069aba5760
+  zh: 019d57d3f5b66866
+/deepseek-ai-dsh-client-ui-themes/use-this-package/loading-a-pack-file:
+  en: 835cd4dcf07e5908
+  zh: 8c9b42b8e4802591
+/deepseek-ai-dsh-client-ui-themes/use-this-package/where-the-launcher-sits:
+  en: 98e19adf679f73c4
+  zh: 640b4a9da56c5ad4
+/deepseek-ai-dsh-client-ui-themes/use-this-package/what-a-pack-changes:
+  en: 0c00e1e5137e66b5
+  zh: 2a3167ef27e7b30d
+/deepseek-ai-dsh-client-ui-themes/understand-the-implementation:
+  en: 0d84397aadf845d5
+  zh: dafa0c5ecb6acb9c
+/deepseek-ai-dsh-client-ui-themes/further-exploration:
+  en: 9cb6e3c6fa06112b
+  zh: fab2d48429af982f
+/deepseek-ai-dsh-client-ui-themes/model-experience:
+  en: 3120df665299c634
+  zh: 1d9f365d091d0d2a
+/deepseek-ai-dsh-client-ui-themes/model-experience/kv-cache-effect:
+  en: ca75c51c89c2c9b0
+  zh: de54f3467ef3b9be
+/deepseek-ai-dsh-client-ui-themes/known-limitations-and-deferred-work:
+  en: 9dd266595eca45e0
+  zh: 4f0cca578371eca5
+/deepseek-ai-dsh-client-ui-themes/known-limitations-and-deferred-work/dev-note:
+  en: ad98ad953206a5ee
+  zh: ac4cfe38b3696c03
