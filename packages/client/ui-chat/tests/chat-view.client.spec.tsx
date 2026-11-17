@@ -2574,6 +2574,8 @@ describe('ChatView', () => {
     const h = makeHarness({ nodes: [user(1, 'try'), retryNode] }, { running: true })
     const view = render(<h.ChatView {...h.props} />)
     const disclosure = view.container.querySelector('details') as HTMLDetailsElement
+    expect(disclosure.hasAttribute('data-retry-row')).toBe(true)
+    expect(view.container.querySelector('[data-chat-user-row]')?.getAttribute('data-chat-row-kind')).toBe('user')
     expect(disclosure.dataset.active).toBe('true')
     expect(within(disclosure).getByRole('status').textContent).toBe('正在重试模型请求（1/2） · 1s')
 
@@ -2623,6 +2625,7 @@ describe('ChatView', () => {
     ])
     // The transient notice is the frame-wide host's job; the failure row keeps
     // neither a recharge affordance nor a toast of its own.
+    expect(view.container.querySelectorAll('[data-turn-error]')).toHaveLength(6)
     expect(view.queryByRole('alert')).toBeNull()
     expect(view.queryByRole('dialog')).toBeNull()
     expect(view.queryByRole('button', { name: '去充值' })).toBeNull()
@@ -2635,6 +2638,7 @@ describe('ChatView', () => {
     expect(statuses.map(status => status.textContent)).toEqual([
       '已达到输出 token 上限回答被截断，已有输出保留在对话中。发送“继续”可让模型接着输出。',
     ])
+    expect(view.container.querySelector('[data-turn-max-tokens]')).not.toBeNull()
     expect(view.queryByText('本轮运行失败')).toBeNull()
   })
 
