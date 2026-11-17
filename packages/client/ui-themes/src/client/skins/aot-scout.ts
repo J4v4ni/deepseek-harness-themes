@@ -1,7 +1,8 @@
 import { GRENZE_GOTISCH_TTF } from './font-data.ts'
 
 /** Theme-specific visual rules for the aot-scout pack. */
-export const AOT_SCOUT_EXTRAS = String.raw`@font-face { font-family: 'DSH Gothic'; src: url(data:font/ttf;base64,${GRENZE_GOTISCH_TTF}) format('truetype'); font-style: normal; font-weight: 100 900; font-display: swap; }\n
+export const AOT_SCOUT_EXTRAS = String.raw`@font-face { font-family: 'DSH Gothic'; src: url(data:font/ttf;base64,${GRENZE_GOTISCH_TTF}) format('truetype'); font-style: normal; font-weight: 100 900; font-display: swap; }
+
 /* Scout regiment: parchment, leather frame, wax seals, brass rivets. */
 body[data-ds-theme-pack="aot-scout"] [data-chat-user-row] {
   position: relative;

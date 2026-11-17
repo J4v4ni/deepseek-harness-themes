@@ -1,7 +1,8 @@
 import { ORBITRON_TTF } from './font-data.ts'
 
 /** Theme-specific visual rules for the cod-tactical pack. */
-export const COD_TACTICAL_EXTRAS = String.raw`@font-face { font-family: 'DSH HUD'; src: url(data:font/ttf;base64,${ORBITRON_TTF}) format('truetype'); font-style: normal; font-weight: 100 900; font-display: swap; }\n
+export const COD_TACTICAL_EXTRAS = String.raw`@font-face { font-family: 'DSH HUD'; src: url(data:font/ttf;base64,${ORBITRON_TTF}) format('truetype'); font-style: normal; font-weight: 100 900; font-display: swap; }
+
 /* Tactical: chamfered plates, hazard stripes, HUD labels. */
 body[data-ds-theme-pack="cod-tactical"] [data-chat-user-row] {
   position: relative;

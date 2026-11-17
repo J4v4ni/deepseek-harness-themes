@@ -1,7 +1,8 @@
 import { ORBITRON_TTF } from './font-data.ts'
 
 /** Theme-specific visual rules for the solo-leveling pack. */
-export const SOLO_LEVELING_EXTRAS = String.raw`@font-face { font-family: 'DSH Arcane'; src: url(data:font/ttf;base64,${ORBITRON_TTF}) format('truetype'); font-style: normal; font-weight: 100 900; font-display: swap; }\n
+export const SOLO_LEVELING_EXTRAS = String.raw`@font-face { font-family: 'DSH Arcane'; src: url(data:font/ttf;base64,${ORBITRON_TTF}) format('truetype'); font-style: normal; font-weight: 100 900; font-display: swap; }
+
 /* Shadow monarch: violet glow, double borders, crystal highlights. */
 body[data-ds-theme-pack="solo-leveling"] [data-chat-user-row] {
   position: relative;
