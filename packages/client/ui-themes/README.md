@@ -54,9 +54,9 @@ The row occupies the sidebar's `sidebar.footer.action` seat, which the shell ren
 
 ### What a pack changes
 
-A pack is not only a palette. Each shipped pack also carries a **skin**: a stylesheet injected while the pack is applied and scoped to `body[data-ds-theme-pack="<id>"]`. The skin sets the interface and display font stacks, paints the page background (tactical grid, starfield nebula, sunset palms, parchment), frames the sidebar, content column, composer, dialogs and menus, and restyles navigation rows, header tabs, message cards, the send button, and the status bar. Choosing the Default tile removes the token layer and the skin together, restoring the stock shell.
+A pack is not only a palette. Each shipped pack also carries a **skin**: a stylesheet injected while the pack is applied and scoped to `body[data-ds-theme-pack="<id>"]`. The skin sets locally embedded display fonts, paints the page background (tactical grid, starfield nebula, sunset palms, parchment), frames the sidebar, content column, composer, dialogs and menus, and restyles navigation rows, header tabs, user messages, retry rows, turn failures, the send button, and the status bar. Each pack keeps its own CSS module for theme-specific composition; shared rules provide only common shell treatment. Choosing the Default tile removes the token layer and the skin together, restoring the stock shell.
 
-Skin rules address stable `data-slot` seats (`sidebar`, `conversation.header`, `conversation.composer`, `conversation.chat.node`, `shell.bottom`), ARIA roles, and dedicated semantic hooks for transcript rows (`data-chat-user-row`, `data-turn-error`, `data-retry-row`, and `data-turn-process`) rather than CSS Module class names, so a skin keeps working when a build rehashes those names. Imported packs carry tokens only.
+Component selectors address stable `data-slot` seats (`sidebar`, `conversation.header`, `conversation.composer`, `conversation.chat.node`, `shell.bottom`), ARIA roles, and dedicated semantic hooks for transcript rows (`data-chat-user-row`, `data-turn-error`, `data-turn-max-tokens`, `data-retry-row`, and `data-turn-process`) rather than CSS Module class names. Each skin also declares one uniquely named `@font-face` for its locally embedded display font. Imported packs carry tokens only. Imported packs carry tokens only.
 
 -----
 
@@ -99,9 +99,9 @@ These limits are current package constraints, not pending cleanup.
 - **Pack state lives in browser storage** — imported packs and the selection do not sync across browsers or devices, and clearing site data removes them.
 - **A pack cannot replace product icons** — `ThemeDefinition.icons` exists on the theme service, but this package registers no theme definition and ships no artwork.
 - **The skins use CSS-drawn ornaments rather than dedicated texture artwork** — inspect the running browser UI before treating a pack as visually complete.
-- **The shipped skins still use system font fallbacks and CSS-drawn ornaments** — locally bundled display fonts and dedicated SVG/texture assets remain future work; screenshots must be reviewed in the running application before treating a pack as visually complete.
+- **Display fonts are bundled as OFL-licensed TTF data** — the corresponding license texts are in `third-party-licenses/`.
 - **Only the active color scheme is meaningful** — every token is stored for both modes with one value, so a pack cannot paint different light and dark palettes.
-- **A skin is an authored approximation, not a build of the concept art** — background art is drawn from CSS gradients and inline SVG, fonts come from the operating system, and no pack ships custom illustrations or icon sets.
+- **A skin is an authored approximation, not a pixel-exact build of concept art** — backgrounds and ornaments use CSS gradients and inline SVG; dedicated high-resolution texture artwork and browser screenshot comparison remain manual review work.
 
 <a id="dev-note"></a>
 ### Dev Note

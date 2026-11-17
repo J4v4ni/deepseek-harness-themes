@@ -22,7 +22,7 @@ describe('pack skins', () => {
       .split('}')
       .map(block => block.split('{')[0] ?? '')
       .map(block => block.replace(/\/\*[\s\S]*?\*\//gu, '').trim())
-      .filter(selector => selector !== '' && !selector.startsWith('@font-face'))
+      .filter(selector => selector !== '' && !selector.startsWith('@font-face') && !selector.startsWith('@media'))
       .flatMap(selector => selector.split(',').map(part => part.trim()).filter(Boolean))
     expect(selectors.length).toBeGreaterThan(20)
     expect(selectors.filter(selector => !selector.startsWith(scope))).toEqual([])
