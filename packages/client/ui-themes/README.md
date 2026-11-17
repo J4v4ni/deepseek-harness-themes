@@ -98,6 +98,7 @@ These limits are current package constraints, not pending cleanup.
 - **Imported packs are not validated for completeness** — the studio checks names, schemes, and token syntax; a pack that overrides only a few tokens inherits the rest of its base palette and may leave some surfaces unchanged.
 - **Pack state lives in browser storage** — imported packs and the selection do not sync across browsers or devices, and clearing site data removes them.
 - **A pack cannot replace product icons** — `ThemeDefinition.icons` exists on the theme service, but this package registers no theme definition and ships no artwork.
+- **The skins use CSS-drawn ornaments rather than dedicated texture artwork** — inspect the running browser UI before treating a pack as visually complete.
 - **The shipped skins still use system font fallbacks and CSS-drawn ornaments** — locally bundled display fonts and dedicated SVG/texture assets remain future work; screenshots must be reviewed in the running application before treating a pack as visually complete.
 - **Only the active color scheme is meaningful** — every token is stored for both modes with one value, so a pack cannot paint different light and dark palettes.
 - **A skin is an authored approximation, not a build of the concept art** — background art is drawn from CSS gradients and inline SVG, fonts come from the operating system, and no pack ships custom illustrations or icon sets.

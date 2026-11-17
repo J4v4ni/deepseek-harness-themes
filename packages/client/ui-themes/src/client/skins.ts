@@ -53,8 +53,8 @@ interface SkinSpec {
 /** The four skins' shared parameters; each theme's ornament lives in its `extras`. */
 const SPEC = {
   'cod-tactical': {
-    fontUi: "'Bahnschrift SemiCondensed', 'Bahnschrift', 'Arial Narrow', 'Segoe UI', sans-serif",
-    fontDisplay: "'Bahnschrift SemiCondensed', 'Bahnschrift', 'Impact', 'Arial Narrow', sans-serif",
+    fontUi: "'DSH HUD', 'Arial Narrow', 'Segoe UI', sans-serif",
+    fontDisplay: "'DSH HUD', 'Arial Narrow', sans-serif",
     fontMono: "'Consolas', 'SF Mono', monospace",
     accent: '#8fe36f',
     accent2: '#e8b84f',
@@ -74,7 +74,7 @@ const SPEC = {
   },
   'solo-leveling': {
     fontUi: "'Segoe UI', 'Inter', system-ui, sans-serif",
-    fontDisplay: "'Montserrat', 'Segoe UI', sans-serif",
+    fontDisplay: "'DSH Arcane', 'Segoe UI', sans-serif",
     fontMono: "'Consolas', 'SF Mono', monospace",
     accent: '#7c5cff',
     accent2: '#38d6ff',
@@ -99,7 +99,7 @@ const SPEC = {
   },
   'gta-vice': {
     fontUi: "'Segoe UI', 'Inter', system-ui, sans-serif",
-    fontDisplay: "'Impact', 'Haettenschweiler', 'Arial Black', sans-serif",
+    fontDisplay: "'DSH Vice', 'Impact', 'Arial Black', sans-serif",
     fontMono: "'Consolas', 'SF Mono', monospace",
     accent: '#ff2f92',
     accent2: '#22d3ee',

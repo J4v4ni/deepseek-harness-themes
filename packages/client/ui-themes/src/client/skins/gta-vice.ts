@@ -1,5 +1,7 @@
+import { BUNGEE_TTF } from './font-data.ts'
+
 /** Theme-specific visual rules for the gta-vice pack. */
-export const GTA_VICE_EXTRAS = String.raw`
+export const GTA_VICE_EXTRAS = String.raw`@font-face { font-family: 'DSH Vice'; src: url(data:font/ttf;base64,${BUNGEE_TTF}) format('truetype'); font-style: normal; font-weight: 400; font-display: swap; }\n
 /* Vice sunset: chrome display type, neon outlines, sun-drenched halo. */
 body[data-ds-theme-pack="gta-vice"] [data-chat-user-row] {
   position: relative;
