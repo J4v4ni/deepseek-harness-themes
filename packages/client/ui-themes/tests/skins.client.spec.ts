@@ -34,6 +34,10 @@ describe('pack skins', () => {
     expect(css).toContain('background:')
     expect(css).toContain('[data-slot="sidebar"]')
     expect(css).toContain('[data-slot="conversation.composer"]')
+    expect(css).toContain('[data-chat-user-row]')
+    expect(css).toContain('[data-turn-error]')
+    expect(css).toContain('[data-retry-row]')
+    expect(css).toContain('prefers-reduced-motion: reduce')
   })
 
   it('leaves imported packs without a skin', () => {

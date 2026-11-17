@@ -106,7 +106,7 @@ function ModelRetryItem({ node, active, t }: {
   const seconds = active ? remainingSeconds : scheduledSeconds
 
   return (
-    <details className={css.retryRow} data-active={active || undefined}>
+    <details className={css.retryRow} data-retry-row data-active={active || undefined}>
       <summary className={css.retrySummary}>
         <span className={css.retryText} role="status">
           <TextShimmer active={active}>
@@ -134,7 +134,7 @@ function TurnErrorItem({ node, t }: {
   t: ChatViewSlotProps['t']
 }) {
   return (
-    <div className={css.turnErrorRow} role="status">
+    <div className={css.turnErrorRow} data-turn-error role="status">
       <StateDot state="error" className={css.turnErrorDot} />
       <div className={css.turnErrorCopy}>
         <span className={css.turnErrorTitle}>{node.code === 'ACCOUNT_SIGNED_OUT' || node.code === 'INTERRUPTED' ? t('message.taskStopped') : t('message.turnError')}</span>
@@ -150,7 +150,7 @@ function TurnMaxTokensItem({ t }: {
   t: ChatViewSlotProps['t']
 }) {
   return (
-    <div className={css.turnErrorRow} role="status">
+    <div className={css.turnErrorRow} data-turn-max-tokens role="status">
       <StateDot state="warning" className={css.turnErrorDot} />
       <div className={css.turnErrorCopy}>
         <span className={css.maxTokensTitle}>{t('message.maxTokens')}</span>
@@ -221,7 +221,7 @@ function UserStyleBubble({
       className={css.userRow}
       data-pending-steering={pending || undefined}
       data-submission-echo={echo || undefined}
-      data-chat-steering-batch={batchStart ? 'start' : undefined}
+      data-chat-user-row\n      data-chat-row-kind={node.kind}\n      data-chat-steering-batch={batchStart ? 'start' : undefined}
     >
       {renderSlotChain('conversation.chat.user.before', { source: node.data.source, kind: node.kind }, { fallback: null })}
       {renderFactorySlot('conversation.chat.user.content', {

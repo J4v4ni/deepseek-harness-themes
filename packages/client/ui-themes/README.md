@@ -56,7 +56,7 @@ The row occupies the sidebar's `sidebar.footer.action` seat, which the shell ren
 
 A pack is not only a palette. Each shipped pack also carries a **skin**: a stylesheet injected while the pack is applied and scoped to `body[data-ds-theme-pack="<id>"]`. The skin sets the interface and display font stacks, paints the page background (tactical grid, starfield nebula, sunset palms, parchment), frames the sidebar, content column, composer, dialogs and menus, and restyles navigation rows, header tabs, message cards, the send button, and the status bar. Choosing the Default tile removes the token layer and the skin together, restoring the stock shell.
 
-Skin rules address stable `data-slot` seats (`sidebar`, `conversation.header`, `conversation.composer`, `conversation.chat.node`, `shell.bottom`), ARIA roles, and element kinds rather than CSS Module class names, so a skin keeps working when a build rehashes those names. Imported packs carry tokens only.
+Skin rules address stable `data-slot` seats (`sidebar`, `conversation.header`, `conversation.composer`, `conversation.chat.node`, `shell.bottom`), ARIA roles, and dedicated semantic hooks for transcript rows (`data-chat-user-row`, `data-turn-error`, `data-retry-row`, and `data-turn-process`) rather than CSS Module class names, so a skin keeps working when a build rehashes those names. Imported packs carry tokens only.
 
 -----
 
@@ -98,6 +98,7 @@ These limits are current package constraints, not pending cleanup.
 - **Imported packs are not validated for completeness** — the studio checks names, schemes, and token syntax; a pack that overrides only a few tokens inherits the rest of its base palette and may leave some surfaces unchanged.
 - **Pack state lives in browser storage** — imported packs and the selection do not sync across browsers or devices, and clearing site data removes them.
 - **A pack cannot replace product icons** — `ThemeDefinition.icons` exists on the theme service, but this package registers no theme definition and ships no artwork.
+- **The shipped skins still use system font fallbacks and CSS-drawn ornaments** — locally bundled display fonts and dedicated SVG/texture assets remain future work; screenshots must be reviewed in the running application before treating a pack as visually complete.
 - **Only the active color scheme is meaningful** — every token is stored for both modes with one value, so a pack cannot paint different light and dark palettes.
 - **A skin is an authored approximation, not a build of the concept art** — background art is drawn from CSS gradients and inline SVG, fonts come from the operating system, and no pack ships custom illustrations or icon sets.
 

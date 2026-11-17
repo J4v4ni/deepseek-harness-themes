@@ -51,14 +51,14 @@ const SPEC = {
     fontUi: "'Bahnschrift SemiCondensed', 'Bahnschrift', 'Arial Narrow', 'Segoe UI', sans-serif",
     fontDisplay: "'Bahnschrift SemiCondensed', 'Bahnschrift', 'Impact', 'Arial Narrow', sans-serif",
     fontMono: "'Consolas', 'SF Mono', monospace",
-    accent: '#c8b063',
-    accent2: '#8fbf5f',
+    accent: '#8fe36f',
+    accent2: '#e8b84f',
     ink: '#e7edde',
     dim: '#8d997f',
-    frame: 'rgba(200, 176, 99, 0.55)',
+    frame: 'rgba(143, 227, 111, 0.52)',
     panel: 'linear-gradient(180deg, rgba(20, 27, 21, 0.96), rgba(10, 15, 11, 0.98))',
     radius: '2px',
-    art: `radial-gradient(120% 80% at 50% -10%, rgba(200, 176, 99, 0.10), transparent 62%),
+    art: `radial-gradient(120% 80% at 50% -10%, rgba(143, 227, 111, 0.10), transparent 62%),
       repeating-linear-gradient(0deg, rgba(198, 214, 180, 0.045) 0 1px, transparent 1px 4px),
       repeating-linear-gradient(90deg, rgba(198, 214, 180, 0.03) 0 1px, transparent 1px 132px),
       repeating-linear-gradient(45deg, rgba(143, 191, 95, 0.028) 0 2px, transparent 2px 16px),
@@ -497,9 +497,85 @@ ${s.extras}
 const SKINS: Readonly<Record<string, string>> = Object.freeze({
   'cod-tactical': buildSkin('cod-tactical', { ...SPEC['cod-tactical'], extras: `
 /* Tactical: chamfered plates, hazard stripes, HUD labels. */
+body[data-ds-theme-pack="cod-tactical"] [data-chat-user-row] {
+  position: relative;
+  isolation: isolate;
+  margin-inline-start: auto;
+  max-width: min(76%, 760px);
+  padding: 16px 20px;
+  border: 1px solid rgba(143, 227, 111, 0.52);
+  border-radius: 3px;
+  color: #d9efca;
+  background:
+    linear-gradient(135deg, rgba(143, 227, 111, 0.12), transparent 36%),
+    linear-gradient(180deg, rgba(28, 38, 31, 0.96), rgba(10, 16, 13, 0.98));
+  box-shadow: 0 0 0 3px rgba(143, 227, 111, 0.08), inset 0 0 30px rgba(143, 227, 111, 0.05);
+}
+body[data-ds-theme-pack="cod-tactical"] [data-chat-user-row]::before,
+body[data-ds-theme-pack="cod-tactical"] [data-chat-user-row]::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+body[data-ds-theme-pack="cod-tactical"] [data-chat-user-row]::before {
+  inset: 5px;
+  border: 1px solid rgba(200, 220, 190, 0.18);
+}
+body[data-ds-theme-pack="cod-tactical"] [data-chat-user-row]::after {
+  right: 8px;
+  top: 8px;
+  width: 26px;
+  height: 5px;
+  background: repeating-linear-gradient(90deg, #8fe36f 0 3px, transparent 3px 5px);
+  opacity: .7;
+}
+body[data-ds-theme-pack="cod-tactical"] [data-turn-error] {
+  position: relative;
+  border-left: 4px solid #ff633d;
+  background: linear-gradient(90deg, rgba(255, 75, 45, .18), transparent 72%);
+  color: #ff8064;
+  text-transform: uppercase;
+}
+body[data-ds-theme-pack="cod-tactical"] [data-turn-error]::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 8px;
+  background: repeating-linear-gradient(135deg, rgba(255, 90, 55, .65) 0 8px, transparent 8px 16px);
+  opacity: .45;
+}
+body[data-ds-theme-pack="cod-tactical"] [data-retry-row] {
+  border-bottom: 1px dotted rgba(143, 227, 111, .38);
+  color: #aeb9a7;
+  font-family: var(--sk-mono, 'Consolas', monospace);
+}
+body[data-ds-theme-pack="cod-tactical"] [data-turn-process] {
+  color: #ff784d;
+  font-family: 'Arial Narrow', 'Segoe UI', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+body[data-ds-theme-pack="cod-tactical"] [data-goal-bar] {
+  border: 1px solid rgba(143, 227, 111, .35);
+  background: linear-gradient(90deg, rgba(143, 227, 111, .12), rgba(232, 184, 79, .06));
+}
+body[data-ds-theme-pack="cod-tactical"] [data-composer-stat] {
+  color: #9cae91;
+  font-family: 'Consolas', monospace;
+  letter-spacing: .06em;
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-ds-theme-pack="cod-tactical"] *,
+  body[data-ds-theme-pack="cod-tactical"] *::before,
+  body[data-ds-theme-pack="cod-tactical"] *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
 body[data-ds-theme-pack="cod-tactical"] [data-slot="sidebar"] [role="region"],
 body[data-ds-theme-pack="cod-tactical"] [data-slot="sidebar"] nav {
-  border-top: 1px dashed rgba(200, 176, 99, 0.35);
+  border-top: 1px dashed rgba(143, 227, 111, 0.35);
   border-bottom: 1px dashed rgba(200, 176, 99, 0.35);
 }
 body[data-ds-theme-pack="cod-tactical"] [data-slot="sidebar"] button,
@@ -513,14 +589,77 @@ body[data-ds-theme-pack="cod-tactical"] [data-slot="sidebar.brand.name"] {
   text-shadow: 0 0 10px rgba(143, 191, 95, 0.35);
 }
 body[data-ds-theme-pack="cod-tactical"] [data-slot="conversation.chat.node"] {
-  background-image: repeating-linear-gradient(135deg, rgba(200, 176, 99, 0.06) 0 2px, transparent 2px 9px);
+  background-image: repeating-linear-gradient(135deg, rgba(143, 227, 111, 0.06) 0 2px, transparent 2px 9px);
 }
 body[data-ds-theme-pack="cod-tactical"] [data-slot="conversation.composer"] {
-  background-image: linear-gradient(180deg, rgba(200, 176, 99, 0.07), transparent 40%);
+  background-image: linear-gradient(180deg, rgba(143, 227, 111, 0.07), transparent 40%);
 }
 ` }),
   'solo-leveling': buildSkin('solo-leveling', { ...SPEC['solo-leveling'], extras: `
 /* Shadow monarch: violet glow, double borders, crystal highlights. */
+body[data-ds-theme-pack="solo-leveling"] [data-chat-user-row] {
+  position: relative;
+  isolation: isolate;
+  margin-inline-start: auto;
+  max-width: min(76%, 760px);
+  padding: 16px 20px;
+  border: 1px solid rgba(121, 103, 255, .88);
+  border-radius: 12px;
+  color: #83eaff;
+  background: linear-gradient(135deg, rgba(19, 36, 76, .94), rgba(11, 12, 34, .96));
+  box-shadow: 0 0 0 2px rgba(56, 214, 255, .12), 0 0 24px rgba(124, 92, 255, .48), inset 0 0 24px rgba(56, 214, 255, .08);
+}
+body[data-ds-theme-pack="solo-leveling"] [data-chat-user-row]::before {
+  content: '';
+  position: absolute;
+  inset: -7px;
+  z-index: -1;
+  border-radius: 16px;
+  background: radial-gradient(ellipse, rgba(124, 92, 255, .3), transparent 68%);
+  filter: blur(10px);
+  pointer-events: none;
+}
+body[data-ds-theme-pack="solo-leveling"] [data-turn-error] {
+  position: relative;
+  border-left: 3px solid #ff465f;
+  color: #ff697a;
+  background: linear-gradient(90deg, rgba(150, 25, 57, .2), transparent 78%);
+  text-shadow: 0 0 12px rgba(255, 48, 82, .35);
+}
+body[data-ds-theme-pack="solo-leveling"] [data-turn-error]::before {
+  content: '';
+  position: absolute;
+  inset: -18px 35% -18px -12px;
+  z-index: -1;
+  background: radial-gradient(ellipse, rgba(170, 25, 60, .24), transparent 70%);
+  filter: blur(12px);
+  pointer-events: none;
+}
+body[data-ds-theme-pack="solo-leveling"] [data-retry-row] {
+  border-bottom: 1px solid rgba(124, 92, 255, .28);
+  color: #aeb8ed;
+}
+body[data-ds-theme-pack="solo-leveling"] [data-turn-process] {
+  color: #c4aaff;
+  text-shadow: 0 0 12px rgba(124, 92, 255, .5);
+}
+body[data-ds-theme-pack="solo-leveling"] [data-goal-bar] {
+  border: 1px solid rgba(124, 92, 255, .48);
+  box-shadow: 0 0 16px rgba(124, 92, 255, .2);
+}
+body[data-ds-theme-pack="solo-leveling"] [data-composer-stat] {
+  color: #a9b8ef;
+  text-shadow: 0 0 8px rgba(56, 214, 255, .3);
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-ds-theme-pack="solo-leveling"] *,
+  body[data-ds-theme-pack="solo-leveling"] *::before,
+  body[data-ds-theme-pack="solo-leveling"] *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
 body[data-ds-theme-pack="solo-leveling"] [data-slot="sidebar"],
 body[data-ds-theme-pack="solo-leveling"] [data-slot="conversation.composer"],
 body[data-ds-theme-pack="solo-leveling"] [role="dialog"],
@@ -554,6 +693,48 @@ body[data-ds-theme-pack="solo-leveling"] [data-slot="conversation.header"] [role
 ` }),
   'gta-vice': buildSkin('gta-vice', { ...SPEC['gta-vice'], extras: `
 /* Vice sunset: chrome display type, neon outlines, sun-drenched halo. */
+body[data-ds-theme-pack="gta-vice"] [data-chat-user-row] {
+  position: relative;
+  isolation: isolate;
+  margin-inline-start: auto;
+  max-width: min(76%, 760px);
+  padding: 16px 20px;
+  border: 1px solid rgba(34, 211, 238, .72);
+  border-radius: 10px;
+  color: #9ff4ff;
+  background: linear-gradient(135deg, rgba(54, 18, 64, .92), rgba(20, 8, 34, .94));
+  box-shadow: 0 0 0 1px rgba(255, 47, 146, .42), 0 0 24px rgba(255, 47, 146, .24), inset 0 0 24px rgba(34, 211, 238, .08);
+}
+body[data-ds-theme-pack="gta-vice"] [data-turn-error] {
+  border-left: 4px solid #ff624f;
+  color: #ff7469;
+  background: linear-gradient(90deg, rgba(255, 58, 85, .2), transparent 76%);
+  text-shadow: 2px 0 rgba(34, 211, 238, .35), -2px 0 rgba(255, 47, 146, .35);
+}
+body[data-ds-theme-pack="gta-vice"] [data-retry-row] {
+  border-bottom: 1px solid rgba(34, 211, 238, .3);
+  color: #f0c4e7;
+}
+body[data-ds-theme-pack="gta-vice"] [data-turn-process] {
+  color: #ff9a67;
+  text-shadow: 0 0 10px rgba(255, 47, 146, .45);
+}
+body[data-ds-theme-pack="gta-vice"] [data-goal-bar] {
+  border: 1px solid rgba(255, 47, 146, .5);
+  background: linear-gradient(90deg, rgba(255, 47, 146, .15), rgba(255, 170, 80, .12));
+}
+body[data-ds-theme-pack="gta-vice"] [data-composer-stat] {
+  color: #8fefff;
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-ds-theme-pack="gta-vice"] *,
+  body[data-ds-theme-pack="gta-vice"] *::before,
+  body[data-ds-theme-pack="gta-vice"] *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
 body[data-ds-theme-pack="gta-vice"]::before {
   background:
     url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 400' preserveAspectRatio='none'%3E%3Cg fill='%23120718'%3E%3Cpath d='M120 400c0-90 10-150 26-190 6-16 4-34-6-46-8-10-6-24 6-26 8-2 14 6 16 16 4 18 2 38-2 56-6 30-12 60-12 90v100z'/%3E%3Cpath d='M180 400c-4-84-26-140-52-176-10-14-12-32-6-44 4-8 14-8 18 2 6 14 4 30-2 44-12 28-6 60 6 86 10 22 16 58 16 88z' opacity='.85'/%3E%3Cpath d='M1380 400c0-96-12-158-30-200-6-16-4-34 6-46 8-10 6-24-6-26-8-2-14 6-16 16-4 18-2 38 2 56 6 30 12 60 12 90v110z'/%3E%3Cpath d='M1320 400c4-88 28-146 56-184 10-14 12-32 6-44-4-8-14-8-18 2-6 14-4 30 2 44 12 28 6 60-6 86-10 22-18 60-18 96z' opacity='.85'/%3E%3C/g%3E%3C/svg%3E") bottom center / 100% 46% no-repeat,
@@ -605,6 +786,59 @@ body[data-ds-theme-pack="gta-vice"]::before {
 ` }),
   'aot-scout': buildSkin('aot-scout', { ...SPEC['aot-scout'], extras: `
 /* Scout regiment: parchment, leather frame, wax seals, brass rivets. */
+body[data-ds-theme-pack="aot-scout"] [data-chat-user-row] {
+  position: relative;
+  isolation: isolate;
+  margin-inline-start: auto;
+  max-width: min(76%, 760px);
+  padding: 16px 20px;
+  border: 1px solid rgba(105, 78, 42, .62);
+  border-radius: 2px;
+  color: #43351f;
+  background:
+    radial-gradient(ellipse at 10% 0%, rgba(255, 255, 245, .8), transparent 60%),
+    repeating-linear-gradient(2deg, rgba(110, 82, 44, .035) 0 1px, transparent 1px 5px),
+    linear-gradient(180deg, #f3e8ce, #e1d1ae);
+  box-shadow: 0 8px 22px rgba(65, 45, 20, .22), inset 0 0 0 4px rgba(128, 96, 52, .09);
+}
+body[data-ds-theme-pack="aot-scout"] [data-chat-user-row]::before {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border: 1px dashed rgba(105, 78, 42, .42);
+  pointer-events: none;
+}
+body[data-ds-theme-pack="aot-scout"] [data-turn-error] {
+  border-left: 5px solid #9b302b;
+  color: #8c2f2a;
+  background: linear-gradient(90deg, rgba(155, 48, 43, .15), transparent 75%);
+  font-weight: 700;
+}
+body[data-ds-theme-pack="aot-scout"] [data-retry-row] {
+  border-bottom: 1px dashed rgba(105, 78, 42, .45);
+  color: #695332;
+}
+body[data-ds-theme-pack="aot-scout"] [data-turn-process] {
+  color: #8c2f2a;
+  font-variant: small-caps;
+  letter-spacing: .08em;
+}
+body[data-ds-theme-pack="aot-scout"] [data-goal-bar] {
+  border: 1px dashed rgba(105, 78, 42, .5);
+  background: rgba(128, 96, 52, .08);
+}
+body[data-ds-theme-pack="aot-scout"] [data-composer-stat] {
+  color: #695332;
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-ds-theme-pack="aot-scout"] *,
+  body[data-ds-theme-pack="aot-scout"] *::before,
+  body[data-ds-theme-pack="aot-scout"] *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
 body[data-ds-theme-pack="aot-scout"]::before {
   background:
     radial-gradient(30% 22% at 8% 6%, rgba(255, 252, 240, 0.55), transparent 72%),
